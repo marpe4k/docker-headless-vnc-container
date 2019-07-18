@@ -31,7 +31,8 @@ function instFF() {
             echo "FF_URL: $FF_URL"
             
             # wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
-            wget -O firefox-$FF_VERS.tar.bz2 $FF_URL | tar xvj --strip 1 -C $FF_INST/
+            # wget -O firefox-$FF_VERS.tar.bz2 $FF_URL | tar xvj --strip 1 -C $FF_INST/
+            wget -O firefox-$FF_VERS.tar.bz2 https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US | tar xvj --strip 1 -C $FF_INST/
             ln -s "$FF_INST/firefox" /usr/bin/firefox
             disableUpdate $FF_INST
             exit $?
