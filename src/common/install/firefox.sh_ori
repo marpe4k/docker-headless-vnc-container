@@ -26,12 +26,9 @@ function instFF() {
             FF_INST=$2
             echo "download Firefox $FF_VERS and install it to '$FF_INST'."
             mkdir -p "$FF_INST"
-            # FF_URL=http://releases.mozilla.org/pub/firefox/releases/$FF_VERS/linux-x86_64/en-US/firefox-$FF_VERS.tar.bz2
-            FF_URL=https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US
+            FF_URL=http://releases.mozilla.org/pub/firefox/releases/$FF_VERS/linux-x86_64/en-US/firefox-$FF_VERS.tar.bz2
             echo "FF_URL: $FF_URL"
-            
-            # wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
-            wget -O firefox-60.8.0esr.tar.bz2 $FF_URL | tar xvj --strip 1 -C $FF_INST/
+            wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
             ln -s "$FF_INST/firefox" /usr/bin/firefox
             disableUpdate $FF_INST
             exit $?
@@ -41,7 +38,7 @@ function instFF() {
     exit -1
 }
 
-instFF '60.8.0esr' '/usr/lib/firefox'
+instFF '45.9.0esr' '/usr/lib/firefox'
 
 #yum -y install firefox-45.7.0-2.el7.centos
 #yum -y install firefox
