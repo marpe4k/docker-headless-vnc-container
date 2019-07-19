@@ -24,11 +24,17 @@ function instFF() {
         FF_VERS=$1
         if [ ! "${2:0:1}" == "" ]; then
             FF_INST=$2
-            echo "download Firefox $FF_VERS and install it to '$FF_INST'."
+            #echo "download Firefox $FF_VERS and install it to '$FF_INST'."
+            echo "pwd"
+            pwd
+            ls -lart
             mkdir -p "$FF_INST"
-            FF_URL=http://releases.mozilla.org/pub/firefox/releases/$FF_VERS/linux-x86_64/en-US/firefox-$FF_VERS.tar.bz2
-            echo "FF_URL: $FF_URL"
-            wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
+            #FF_URL=http://releases.mozilla.org/pub/firefox/releases/$FF_VERS/linux-x86_64/en-US/firefox-$FF_VERS.tar.bz2
+            # echo "FF_URL: $FF_URL"
+            # wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
+            bunzip2 firefox-68.0esr.tar.bz2
+            tar xvf firefox-68.0esr.tar
+            cp -a firefox /usr/lib/firefox
             ln -s "$FF_INST/firefox" /usr/bin/firefox
             disableUpdate $FF_INST
             exit $?
