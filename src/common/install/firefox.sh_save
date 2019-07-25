@@ -24,15 +24,19 @@ function instFF() {
         FF_VERS=$1
         if [ ! "${2:0:1}" == "" ]; then
             FF_INST=$2
-            echo "download Firefox $FF_VERS and install it to '$FF_INST'."
+            #echo "download Firefox $FF_VERS and install it to '$FF_INST'."
+            echo "pwd"
+            pwd
+            ls -lart
             mkdir -p "$FF_INST"
-            FF_URL=http://releases.mozilla.org/pub/firefox/releases/$FF_VERS/linux-x86_64/en-US/firefox-$FF_VERS.tar.bz2
-            echo "FF_URL: $FF_URL"
-            wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
+            #FF_URL=http://releases.mozilla.org/pub/firefox/releases/$FF_VERS/linux-x86_64/en-US/firefox-$FF_VERS.tar.bz2
+            # echo "FF_URL: $FF_URL"
+            # wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
+            bunzip2 firefox-68.0esr.tar.bz2
+            tar xvf firefox-68.0esr.tar
+            cp -a firefox /usr/lib/firefox
             ln -s "$FF_INST/firefox" /usr/bin/firefox
-            # disableUpdate $FF_INST
-            mkdir /usr/lib/firefox/distribution
-            cp install/policies.json /usr/lib/firefox/distribution
+            disableUpdate $FF_INST
             exit $?
         fi
     fi
@@ -40,7 +44,7 @@ function instFF() {
     exit -1
 }
 
-instFF '68.0.1esr' '/usr/lib/firefox'
+instFF '45.9.0esr' '/usr/lib/firefox'
 
 #yum -y install firefox-45.7.0-2.el7.centos
 #yum -y install firefox
