@@ -30,9 +30,9 @@ function instFF() {
             echo "FF_URL: $FF_URL"
             wget -qO- $FF_URL | tar xvj --strip 1 -C $FF_INST/
             ln -s "$FF_INST/firefox" /usr/bin/firefox
-            # disableUpdate $FF_INST
-            mkdir /usr/lib/firefox/distribution
-            cp install/policies.json /usr/lib/firefox/distribution
+            disableUpdate $FF_INST
+            #mkdir /usr/lib/firefox/distribution
+            #cp install/policies.json /usr/lib/firefox/distribution
             exit $?
         fi
     fi
@@ -40,7 +40,8 @@ function instFF() {
     exit -1
 }
 
-instFF '68.0.1esr' '/usr/lib/firefox'
+#instFF '68.0.1esr' '/usr/lib/firefox'
+instFF '52.9.0esr' '/usr/lib/firefox'
 
 #yum -y install firefox-45.7.0-2.el7.centos
 #yum -y install firefox
