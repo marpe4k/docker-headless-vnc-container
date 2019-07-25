@@ -32,6 +32,9 @@ ENV HOME=/headless \
     VNC_VIEW_ONLY=false
 WORKDIR $HOME
 
+# Update Ubuntu
+RUN apt-get update && apt-get upgrade
+
 ### Add all install scripts for further steps
 ADD ./src/common/install/ $INST_SCRIPTS/
 ADD ./src/ubuntu/install/ $INST_SCRIPTS/
