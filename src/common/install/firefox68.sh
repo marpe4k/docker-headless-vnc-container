@@ -39,9 +39,9 @@ function instFF() {
     echo "function parameter are not set correctly please call it like 'instFF [version] [install path]'"
     exit -1
 }
-
+#instFF '45.9.0esr' '/usr/lib/firefox'
 instFF '68.0.1esr' '/usr/lib/firefox'
-#instFF '52.9.0esr' '/usr/lib/firefox'
+#instFF '52.9.0esr' '/usr/lib/firefox' # tut nicht
 
 #yum -y install firefox-45.7.0-2.el7.centos
 #yum -y install firefox
