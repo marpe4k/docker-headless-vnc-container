@@ -34,7 +34,7 @@ ENV HOME=/headless \
 WORKDIR $HOME
 
 # Update Ubuntu
-RUN apt-get update && apt-get upgrade -y
+#RUN apt-get update && apt-get upgrade -y
 
 ### Add all install scripts for further steps
 ADD ./src/common/install/ $INST_SCRIPTS/
