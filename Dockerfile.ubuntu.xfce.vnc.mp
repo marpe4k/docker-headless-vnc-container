@@ -34,7 +34,7 @@ ENV HOME=/headless \
 WORKDIR $HOME
 
 # Update Ubuntu
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 
 ### Add all install scripts for further steps
 ADD ./src/common/install/ $INST_SCRIPTS/
@@ -56,7 +56,7 @@ RUN $INST_SCRIPTS/no_vnc.sh
 #RUN $INST_SCRIPTS/firefox.sh
 #RUN $INST_SCRIPTS/firefox45.sh
 #RUN $INST_SCRIPTS/firefox68.sh
-RUN apt-get update && apt-get install firefox
+RUN apt-get update && apt-get install firefox -y
 RUN $INST_SCRIPTS/chrome.sh
 
 ### Install xfce UI
