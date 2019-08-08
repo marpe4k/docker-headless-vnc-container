@@ -54,8 +54,8 @@ RUN $INST_SCRIPTS/no_vnc.sh
 
 ### Install firefox and chrome browser
 #RUN $INST_SCRIPTS/firefox.sh
-#RUN $INST_SCRIPTS/firefox45.sh
-RUN $INST_SCRIPTS/firefox60.sh
+RUN $INST_SCRIPTS/firefox45.sh
+#RUN $INST_SCRIPTS/firefox60.sh
 #RUN $INST_SCRIPTS/firefox68.sh
 #RUN apt-get update && apt-get install firefox -y
 RUN $INST_SCRIPTS/chrome.sh
